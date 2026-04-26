@@ -11,7 +11,7 @@
 <body>
 
 <div class="header">
-  <h1>🥗 Unik Food</h1>
+  <h1><svg style="display:inline;vertical-align:-5px;margin-right:8px" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M5 12C5 6 8 2 12 2c4 0 7 4 7 10-2 2-4 3-7 3s-5-1-7-3z"/></svg>Unik Food</h1>
   <div class="header-sub">Правильное питание с доставкой</div>
 </div>
 
@@ -19,7 +19,7 @@
 
   <!-- Promo banner -->
   <div class="card" style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); border: none;">
-    <div class="card-title">🎁 Акция 7+7</div>
+    <div class="card-title"><svg style="display:inline;vertical-align:-4px;margin-right:6px" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e65100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v10H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>Акция 7+7</div>
     <div class="card-text">Закажи 14 дней — получи скидку 15%. Бонусы начисляются автоматически.</div>
     <button class="btn btn-accent mt-1" style="width: auto;" onclick="scrollToPrograms()">Выбрать программу</button>
   </div>
@@ -30,7 +30,9 @@
 
     <!-- Снижение -->
     <div class="program-card" onclick="goToOrder('snizhenie')">
-      <div class="program-img">🥦</div>
+      <div class="program-img">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#2e7d32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M5 12C5 6 8 2 12 2c4 0 7 4 7 10-2 2-4 3-7 3s-5-1-7-3z"/><path d="M8.5 17c1-1.5 2-3 3.5-5"/></svg>
+      </div>
       <div class="program-body">
         <div class="program-name">Снижение веса</div>
         <div class="program-desc">1200 ккал • Белки 90г • Жиры 40г • Углеводы 110г</div>
@@ -54,7 +56,9 @@
 
     <!-- Баланс -->
     <div class="program-card" onclick="goToOrder('balans')">
-      <div class="program-img" style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);">⚖️</div>
+      <div class="program-img" style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#0d47a1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="3" x2="12" y2="21"/><path d="M8 21h8"/><line x1="5" y1="7" x2="19" y2="7"/><path d="M5 7l3 6H2l3-6z"/><path d="M19 7l3 6h-6l3-6z"/></svg>
+      </div>
       <div class="program-body">
         <div class="program-name">Баланс</div>
         <div class="program-desc">1600 ккал • Поддержание веса • Разнообразное меню</div>
@@ -77,7 +81,9 @@
 
     <!-- Набор -->
     <div class="program-card" onclick="goToOrder('nabor')">
-      <div class="program-img" style="background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);">💪</div>
+      <div class="program-img" style="background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#880e4f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10v4a1 1 0 0 0 1 1h3V9H3a1 1 0 0 0-1 1z"/><path d="M22 14v-4a1 1 0 0 0-1-1h-3v6h3a1 1 0 0 0 1-1z"/><rect x="5" y="8" width="3" height="8" rx="0.5"/><rect x="16" y="8" width="3" height="8" rx="0.5"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+      </div>
       <div class="program-body">
         <div class="program-name">Набор массы</div>
         <div class="program-desc">2500/3500 ккал • Высокобелковое меню • Для спортсменов</div>
@@ -100,7 +106,9 @@
 
     <!-- Премиум -->
     <div class="program-card" onclick="goToOrder('premium')">
-      <div class="program-img" style="background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);">👑</div>
+      <div class="program-img" style="background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#4a148c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10l4 6-9 12L3 9z"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="7" y1="3" x2="10" y2="9"/><line x1="17" y1="3" x2="14" y2="9"/><line x1="12" y1="3" x2="12" y2="9"/></svg>
+      </div>
       <div class="program-body">
         <div class="program-name">Премиум</div>
         <div class="program-desc">Индивидуальное меню • Эксклюзивные ингредиенты • Ежедневная доставка</div>
@@ -120,7 +128,9 @@
 
     <!-- Детокс -->
     <div class="program-card" onclick="goToOrder('detox')">
-      <div class="program-img" style="background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);">🌿</div>
+      <div class="program-img" style="background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#004d40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L5 12a7 7 0 1 0 14 0z"/><line x1="12" y1="16" x2="12" y2="21"/></svg>
+      </div>
       <div class="program-body">
         <div class="program-name">Detox</div>
         <div class="program-desc">Очищение организма • Смузи и супы • 3/5/7 дней</div>
@@ -142,7 +152,7 @@
 
   <!-- FAQ -->
   <div class="card mt-2">
-    <div class="card-title">📍 Как работает доставка?</div>
+    <div class="card-title"><svg style="display:inline;vertical-align:-4px;margin-right:6px" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Как работает доставка?</div>
     <div class="card-text">
       <strong>Утро:</strong> 7:00-9:00 или 9:00-11:00<br>
       <strong>Вечер:</strong> 19:00-21:00 или 21:00-23:00<br>
