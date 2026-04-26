@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#4CAF50">
+<title>Оформление заказа — Unik Food</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="header">
+  <h1>📝 Оформление</h1>
+  <div class="header-sub">Шаг 1 из 3</div>
+</div>
+
+<div class="container">
+
+  <!-- Program summary -->
+  <div class="card animate-in">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <div style="font-size: 2.5rem;">🥦</div>
+      <div>
+        <div style="font-weight: 700; font-size: 1.1rem;">Снижение веса</div>
+        <div style="font-size: 0.85rem; color: var(--text-secondary);">1200 ккал • 800₽/день</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 1: Format -->
+  <div class="card animate-in">
+    <div class="card-title">1. Выберите формат</div>
+    <div class="radio-group mt-1">
+      <div class="radio-item selected" onclick="selectFormat(this, '5+5')">
+        <input type="radio" name="format" value="5+5" checked>
+        <div class="radio-title">5+5</div>
+        <div class="radio-desc">10 дней<br>+2 бонуса</div>
+      </div>
+      <div class="radio-item" onclick="selectFormat(this, '7+7')">
+        <input type="radio" name="format" value="7+7">
+        <div class="radio-title">7+7</div>
+        <div class="radio-desc">14 дней<br>+2 бонуса</div>
+      </div>
+      <div class="radio-item" onclick="selectFormat(this, '10+10')">
+        <input type="radio" name="format" value="10+10">
+        <div class="radio-title">10+10</div>
+        <div class="radio-desc">20 дней<br>+4 бонуса</div>
+      </div>
+      <div class="radio-item" onclick="selectFormat(this, '14+14')">
+        <input type="radio" name="format" value="14+14">
+        <div class="radio-title">14+14</div>
+        <div class="radio-desc">28 дней<br>+4 бонуса</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 2: Time -->
+  <div class="card animate-in">
+    <div class="card-title">2. Время доставки</div>
+    <div class="form-group mt-1">
+      <label class="form-label">Период</label>
+      <select class="form-select" id="deliveryTime" onchange="updateSchedule()">
+        <option value="evening">Вечер (19:00-21:00 или 21:00-23:00)</option>
+        <option value="morning">Утро (7:00-9:00 или 9:00-11:00)</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Конкретный слот</label>
+      <select class="form-select" id="timeSlot">
+        <option>19:00-21:00</option>
+        <option>21:00-23:00</option>
+      </select>
+    </div>
+    <div id="schedulePreview" class="mt-1" style="font-size: 0.85rem; color: var(--text-secondary); padding: 12px; background: #f5f5f5; border-radius: 8px;">
+      📅 Доставки: Вс / Вт / Пт
+    </div>
+  </div>
+
+  <!-- Step 3: Dates -->
+  <div class="card animate-in">
+    <div class="card-title">3. Даты</div>
+    <div class="form-group mt-1">
+      <label class="form-label">Дата старта</label>
+      <input type="date" class="form-input" id="startDate" onchange="calcEndDate()">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Дата окончания (авто)</label>
+      <input type="date" class="form-input" id="endDate" readonly style="background: #f5f5f5;">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Особые требования</label>
+      <textarea class="form-input" rows="2" placeholder="Аллергии, предпочтения..." id="notes"></textarea>
+    </div>
+  </div>
+
+  <!-- Step 4: Address -->
+  <div class="card animate-in">
+    <div class="card-title">4. Адрес и контакты</div>
+    <div class="form-group mt-1">
+      <label class="form-label">Адрес доставки</label>
+      <input type="text" class="form-input" placeholder="г. Москва, ул. ..." id="address">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Телефон</label>
+      <input type="tel" class="form-input" placeholder="+7 (999) 000-00-00" id="phone">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Комментарий для курьера</label>
+      <textarea class="form-input" rows="2" placeholder="Подъезд, код домофона..." id="courierNote"></textarea>
+    </div>
+  </div>
+
+  <!-- Total -->
+  <div class="card animate-in" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border: none;">
+    <div class="flex-between">
+      <div>
+        <div style="font-size: 0.85rem; color: var(--text-secondary);">Итого</div>
+        <div style="font-size: 1.6rem; font-weight: 800; color: var(--primary-dark);">24 000 ₽</div>
+        <div style="font-size: 0.8rem; color: var(--text-secondary);">Снижение 800₽ × 30 дней (10+10+4 бонуса)</div>
+      </div>
+      <div style="text-align: right;">
+        <div style="font-size: 0.85rem; color: var(--text-secondary); text-decoration: line-through;">26 400 ₽</div>
+        <div style="font-size: 0.85rem; color: var(--accent); font-weight: 700;">Экономия 2 400 ₽</div>
+      </div>
+    </div>
+  </div>
+
+  <button class="btn btn-primary mb-2" onclick="submitOrder()">
+    Перейти к оплате
+  </button>
+
+</div>
+
+<script src="js/app.js"></script>
+<script>
+// Set tomorrow as default start date
+const tomorrow = new Date();
+tomorrow.setDate(tomorrow.getDate() + 1);
+document.getElementById('startDate').value = tomorrow.toISOString().split('T')[0];
+calcEndDate();
+
+function selectFormat(el, val) {
+  document.querySelectorAll('.radio-item').forEach(i => i.classList.remove('selected'));
+  el.classList.add('selected');
+  el.querySelector('input').checked = true;
+  calcEndDate();
+}
+
+function updateSchedule() {
+  const time = document.getElementById('deliveryTime').value;
+  const slot = document.getElementById('timeSlot');
+  const preview = document.getElementById('schedulePreview');
+
+  if (time === 'morning') {
+    slot.innerHTML = '<option>7:00-9:00</option><option>9:00-11:00</option>';
+    preview.innerHTML = '📅 Доставки: Пн / Ср / Сб';
+  } else {
+    slot.innerHTML = '<option>19:00-21:00</option><option>21:00-23:00</option>';
+    preview.innerHTML = '📅 Доставки: Вс / Вт / Пт';
+  }
+}
+
+function calcEndDate() {
+  const start = new Date(document.getElementById('startDate').value);
+  const format = document.querySelector('input[name="format"]:checked').value;
+  const days = { '5+5': 10, '7+7': 14, '10+10': 20, '14+14': 28 };
+  const bonus = { '5+5': 2, '7+7': 2, '10+10': 4, '14+14': 4 };
+  const total = days[format] + bonus[format];
+  const end = new Date(start);
+  end.setDate(end.getDate() + total);
+  document.getElementById('endDate').value = end.toISOString().split('T')[0];
+}
+
+function submitOrder() {
+  const order = {
+    program: 'Снижение 1200',
+    format: document.querySelector('input[name="format"]:checked').value,
+    time: document.getElementById('deliveryTime').value,
+    slot: document.getElementById('timeSlot').value,
+    startDate: document.getElementById('startDate').value,
+    endDate: document.getElementById('endDate').value,
+    address: document.getElementById('address').value,
+    phone: document.getElementById('phone').value,
+    notes: document.getElementById('notes').value,
+    courierNote: document.getElementById('courierNote').value
+  };
+
+  if (!order.address || !order.phone) {
+    alert('Заполните адрес и телефон');
+    return;
+  }
+
+  localStorage.setItem('currentOrder', JSON.stringify(order));
+  window.location.href = 'payment.html';
+}
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js');
+}
+</script>
+</body>
+</html>

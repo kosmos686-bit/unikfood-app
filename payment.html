@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#4CAF50">
+<title>Оплата — Unik Food</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="header">
+  <h1>💳 Оплата</h1>
+  <div class="header-sub">Шаг 3 из 3</div>
+</div>
+
+<div class="container">
+
+  <!-- Order summary -->
+  <div class="card animate-in">
+    <div class="card-title">Ваш заказ</div>
+    <div id="orderSummary" class="mt-1"></div>
+  </div>
+
+  <!-- Payment methods -->
+  <div class="card animate-in">
+    <div class="card-title">Способ оплаты</div>
+    <div style="display: grid; gap: 8px; margin-top: 12px;">
+      <div class="radio-item selected" onclick="selectPayment(this, 'card')" style="text-align: left; display: flex; align-items: center; gap: 12px;">
+        <input type="radio" name="paymethod" value="card" checked>
+        <div>
+          <div class="radio-title">💳 Банковская карта</div>
+          <div class="radio-desc">Через Pay Keeper (Visa, МИР, Mastercard)</div>
+        </div>
+      </div>
+      <div class="radio-item" onclick="selectPayment(this, 'cash')" style="text-align: left; display: flex; align-items: center; gap: 12px;">
+        <input type="radio" name="paymethod" value="cash">
+        <div>
+          <div class="radio-title">💵 Наличные курьеру</div>
+          <div class="radio-desc">Оплата при получении</div>
+        </div>
+      </div>
+      <div class="radio-item" onclick="selectPayment(this, 'invoice')" style="text-align: left; display: flex; align-items: center; gap: 12px;">
+        <input type="radio" name="paymethod" value="invoice">
+        <div>
+          <div class="radio-title">🏢 Счёт для юрлица</div>
+          <div class="radio-desc">Выставим счёт в течение 24 часов</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Total -->
+  <div class="card animate-in" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border: none;">
+    <div class="flex-between">
+      <div>
+        <div style="font-size: 0.85rem; color: var(--text-secondary);">К оплате</div>
+        <div id="totalAmount" style="font-size: 1.8rem; font-weight: 800; color: var(--primary-dark);">24 000 ₽</div>
+      </div>
+      <div style="text-align: right;">
+        <div style="font-size: 0.8rem; color: var(--text-secondary);">Бонусы</div>
+        <div id="bonusDays" style="font-size: 1rem; font-weight: 700; color: var(--accent);">+2 дня</div>
+      </div>
+    </div>
+  </div>
+
+  <button class="btn btn-primary mb-2" onclick="processPayment()">
+    Оплатить 24 000 ₽
+  </button>
+
+  <div class="text-center" style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 20px;">
+    🔒 Платёж защищен. При проблемах — свяжитесь с менеджером.
+  </div>
+
+</div>
+
+<script src="js/app.js"></script>
+<script>
+const order = JSON.parse(localStorage.getItem('currentOrder') || '{}');
+const prices = { '5+5': 8000, '7+7': 11200, '10+10': 16000, '14+14': 22400 };
+const bonus = { '5+5': '+2 дня', '7+7': '+2 дня', '10+10': '+4 дня', '14+14': '+4 дня' };
+const total = prices[order.format] || 24000;
+
+document.getElementById('orderSummary').innerHTML = `
+  <div class="flex-between" style="padding: 6px 0;"><span>${order.program || 'Снижение 1200'}</span><span>${order.format || '10+10'}</span></div>
+  <div class="flex-between" style="padding: 6px 0;"><span>Доставка</span><span>${order.time === 'morning' ? 'Утро' : 'Вечер'}</span></div>
+  <div class="flex-between" style="padding: 6px 0;"><span>Слот</span><span>${order.slot || '19:00-21:00'}</span></div>
+  <div class="flex-between" style="padding: 6px 0;"><span>Период</span><span>${order.startDate || ''} — ${order.endDate || ''}</span></div>
+`;
+document.getElementById('totalAmount').textContent = total.toLocaleString() + ' ₽';
+document.getElementById('bonusDays').textContent = bonus[order.format] || '+2 дня';
+document.querySelector('.btn-primary').textContent = 'Оплатить ' + total.toLocaleString() + ' ₽';
+
+function selectPayment(el, val) {
+  document.querySelectorAll('.radio-item').forEach(i => i.classList.remove('selected'));
+  el.classList.add('selected');
+  el.querySelector('input').checked = true;
+}
+
+function processPayment() {
+  const method = document.querySelector('input[name="paymethod"]:checked').value;
+  if (method === 'card') {
+    // TODO: Pay Keeper API — create payment link
+    alert('Переходим на страницу оплаты Pay Keeper...
+
+(В продакшене — редирект на оплату)');
+    // window.location.href = 'https://paykeeper.ru/...';
+  } else if (method === 'cash') {
+    alert('Заказ оформлен! Оплата наличными курьеру.
+
+Статус в CRM: "Не оплачено"');
+    window.location.href = 'lk.html';
+  } else {
+    alert('Счёт будет выставлен в течение 24 часов.
+
+Бухгалтер проверит и проставит статус.');
+    window.location.href = 'lk.html';
+  }
+  // TODO: amoCRM API — create lead with status "Оформляется" or "Ждет оплату"
+}
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js');
+}
+</script>
+</body>
+</html>

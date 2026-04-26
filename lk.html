@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#4CAF50">
+<title>Мой рацион — Unik Food</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="header">
+  <h1>👤 Мой рацион</h1>
+  <div class="header-sub">Алексей, здравствуйте!</div>
+</div>
+
+<div class="container">
+
+  <!-- Current order card -->
+  <div class="card animate-in">
+    <div class="flex-between">
+      <div>
+        <div style="font-size: 0.8rem; color: var(--text-secondary);">Текущий рацион</div>
+        <div class="card-title" style="margin: 4px 0;">🥦 Снижение 1200</div>
+        <div style="font-size: 0.85rem; color: var(--text-secondary);">Формат: 10+10 (+4 бонусных дня)</div>
+      </div>
+      <span class="badge badge-success">Активен</span>
+    </div>
+
+    <div class="divider"></div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+      <div>
+        <div style="font-size: 0.75rem; color: var(--text-secondary);">Начало</div>
+        <div style="font-weight: 700;">14 апреля</div>
+      </div>
+      <div>
+        <div style="font-size: 0.75rem; color: var(--text-secondary);">Окончание</div>
+        <div style="font-weight: 700;">7 мая</div>
+      </div>
+      <div>
+        <div style="font-size: 0.75rem; color: var(--text-secondary);">Осталось дней</div>
+        <div style="font-weight: 700; color: var(--primary-dark);">8 дней</div>
+      </div>
+      <div>
+        <div style="font-size: 0.75rem; color: var(--text-secondary);">Бонусных дней</div>
+        <div style="font-weight: 700; color: var(--accent);">+4 дня</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Next delivery -->
+  <div class="card animate-in">
+    <div class="card-title">📦 Следующая доставка</div>
+    <div style="display: flex; align-items: center; gap: 12px; margin-top: 8px;">
+      <div style="width: 48px; height: 48px; background: #e8f5e9; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">📅</div>
+      <div>
+        <div style="font-weight: 700;">Завтра, 27 апреля</div>
+        <div style="font-size: 0.85rem; color: var(--text-secondary);">Вечер, 19:00-21:00</div>
+        <div style="font-size: 0.8rem; color: var(--primary-dark); margin-top: 2px;">Снижение 1200 • День 14</div>
+      </div>
+    </div>
+    <div class="mt-1" style="font-size: 0.8rem; color: var(--text-secondary);">
+      📍 Москва, ул. Большая Ордынка, 7
+    </div>
+  </div>
+
+  <!-- Delivery schedule -->
+  <div class="card animate-in">
+    <div class="card-title">🚚 График доставок</div>
+    <div class="mt-1" style="font-size: 0.9rem;">
+      <div class="flex-between" style="padding: 8px 0; border-bottom: 1px solid var(--border);">
+        <span>Вс, 27 апр</span>
+        <span style="font-weight: 600;">Вечер 19-21</span>
+      </div>
+      <div class="flex-between" style="padding: 8px 0; border-bottom: 1px solid var(--border);">
+        <span>Вт, 29 апр</span>
+        <span style="font-weight: 600;">Вечер 19-21</span>
+      </div>
+      <div class="flex-between" style="padding: 8px 0; border-bottom: 1px solid var(--border);">
+        <span>Пт, 2 мая</span>
+        <span style="font-weight: 600;">Вечер 19-21</span>
+      </div>
+      <div class="flex-between" style="padding: 8px 0; color: var(--text-secondary);">
+        <span>Вс, 4 мая</span>
+        <span>+4 бонусных дня</span>
+      </div>
+    </div>
+    <div class="mt-1" style="font-size: 0.8rem; color: var(--text-secondary);">
+      💡 Дни доставки фиксированы. Сдвиг невозможен.
+    </div>
+  </div>
+
+  <!-- Payment status -->
+  <div class="card animate-in">
+    <div class="flex-between">
+      <div class="card-title">💳 Оплата</div>
+      <span class="badge badge-success">Оплачено</span>
+    </div>
+    <div class="mt-1" style="font-size: 0.9rem;">
+      <div class="flex-between" style="padding: 6px 0;">
+        <span style="color: var(--text-secondary);">Сумма</span>
+        <span style="font-weight: 700;">75 000 ₽</span>
+      </div>
+      <div class="flex-between" style="padding: 6px 0;">
+        <span style="color: var(--text-secondary);">Способ</span>
+        <span>Pay Keeper</span>
+      </div>
+      <div class="flex-between" style="padding: 6px 0;">
+        <span style="color: var(--text-secondary);">Дата</span>
+        <span>14 апреля 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Actions -->
+  <div class="card animate-in">
+    <div class="card-title">⚙️ Управление</div>
+    <div style="display: grid; gap: 8px; margin-top: 12px;">
+      <button class="btn btn-outline" onclick="freezeRation()">
+        ❄️ Заморозить рацион
+      </button>
+      <button class="btn btn-outline" onclick="changeAddress()">
+        📍 Изменить адрес
+      </button>
+      <button class="btn btn-outline" onclick="changeTime()">
+        🕐 Изменить время доставки
+      </button>
+      <a href="payment.html" class="btn btn-primary" style="text-align: center;">
+        💳 Продлить рацион
+      </a>
+    </div>
+    <div class="mt-1" style="font-size: 0.75rem; color: var(--text-secondary); text-align: center;">
+      Заморозка доступна до 10 дней. Смена адреса — до 22:00 дня доставки.
+    </div>
+  </div>
+
+  <!-- Support -->
+  <div class="card animate-in" style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border: none;">
+    <div class="card-title">💬 Нужна помощь?</div>
+    <div class="card-text">Менеджер ответит в Telegram или WhatsApp</div>
+    <a href="https://t.me/unikfood_manager" class="btn btn-primary mt-1" style="width: auto; display: inline-block;">
+      Написать в Telegram
+    </a>
+  </div>
+
+</div>
+
+<!-- Bottom Nav -->
+<nav class="bottom-nav">
+  <a href="index.html" class="nav-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    Программы
+  </a>
+  <a href="lk.html" class="nav-item active">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    Мой рацион
+  </a>
+  <a href="history.html" class="nav-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    История
+  </a>
+  <a href="settings.html" class="nav-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    Настройки
+  </a>
+</nav>
+
+<script src="js/app.js"></script>
+<script>
+function freezeRation() {
+  if (confirm('Заморозить рацион? Доступно до 10 дней. Заявка примется до 8:00 дня доставки.')) {
+    alert('Заявка на заморозку отправлена менеджеру. Ожидайте подтверждения.');
+    // TODO: API call to amoCRM — create task for manager
+  }
+}
+function changeAddress() {
+  const newAddr = prompt('Введите новый адрес доставки:');
+  if (newAddr) {
+    alert('Адрес изменён. Задача создана логисту.');
+    // TODO: API call — update lead + create task for logistician
+  }
+}
+function changeTime() {
+  alert('Выберите новый слот в настройках или свяжитесь с менеджером.');
+  window.location.href = 'settings.html';
+}
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js');
+}
+</script>
+</body>
+</html>

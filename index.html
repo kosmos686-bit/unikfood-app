@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#4CAF50">
+<title>Unik Food — Программы питания</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="header">
+  <h1>🥗 Unik Food</h1>
+  <div class="header-sub">Правильное питание с доставкой</div>
+</div>
+
+<div class="container">
+
+  <!-- Promo banner -->
+  <div class="card" style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); border: none;">
+    <div class="card-title">🎁 Акция 7+7</div>
+    <div class="card-text">Закажи 14 дней — получи скидку 15%. Бонусы начисляются автоматически.</div>
+    <button class="btn btn-accent mt-1" style="width: auto;" onclick="scrollToPrograms()">Выбрать программу</button>
+  </div>
+
+  <!-- Programs -->
+  <div id="programs">
+    <h2 style="margin: 20px 0 12px; font-size: 1.1rem;">Программы питания</h2>
+
+    <!-- Снижение -->
+    <div class="program-card" onclick="goToOrder('snizhenie')">
+      <div class="program-img">🥦</div>
+      <div class="program-body">
+        <div class="program-name">Снижение веса</div>
+        <div class="program-desc">1200 ккал • Белки 90г • Жиры 40г • Углеводы 110г</div>
+        <div class="program-tags">
+          <span class="tag">800₽/день</span>
+          <span class="tag orange">-10%</span>
+          <span class="tag">5+5</span>
+          <span class="tag">7+7</span>
+          <span class="tag">10+10</span>
+          <span class="tag">14+14</span>
+        </div>
+        <div class="program-footer">
+          <div>
+            <span class="program-price">от 24 000₽</span>
+            <span class="program-oldprice">26 400₽</span>
+          </div>
+          <button class="btn btn-primary btn-sm">Заказать</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Баланс -->
+    <div class="program-card" onclick="goToOrder('balans')">
+      <div class="program-img" style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);">⚖️</div>
+      <div class="program-body">
+        <div class="program-name">Баланс</div>
+        <div class="program-desc">1600 ккал • Поддержание веса • Разнообразное меню</div>
+        <div class="program-tags">
+          <span class="tag">1600₽/день</span>
+          <span class="tag">2000₽/день</span>
+          <span class="tag">5+5</span>
+          <span class="tag">7+7</span>
+          <span class="tag">10+10</span>
+          <span class="tag">14+14</span>
+        </div>
+        <div class="program-footer">
+          <div>
+            <span class="program-price">от 48 000₽</span>
+          </div>
+          <button class="btn btn-primary btn-sm">Заказать</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Набор -->
+    <div class="program-card" onclick="goToOrder('nabor')">
+      <div class="program-img" style="background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);">💪</div>
+      <div class="program-body">
+        <div class="program-name">Набор массы</div>
+        <div class="program-desc">2500/3500 ккал • Высокобелковое меню • Для спортсменов</div>
+        <div class="program-tags">
+          <span class="tag">2500₽/день</span>
+          <span class="tag">3500₽/день</span>
+          <span class="tag">5+5</span>
+          <span class="tag">7+7</span>
+          <span class="tag">10+10</span>
+          <span class="tag">14+14</span>
+        </div>
+        <div class="program-footer">
+          <div>
+            <span class="program-price">от 75 000₽</span>
+          </div>
+          <button class="btn btn-primary btn-sm">Заказать</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Премиум -->
+    <div class="program-card" onclick="goToOrder('premium')">
+      <div class="program-img" style="background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);">👑</div>
+      <div class="program-body">
+        <div class="program-name">Премиум</div>
+        <div class="program-desc">Индивидуальное меню • Эксклюзивные ингредиенты • Ежедневная доставка</div>
+        <div class="program-tags">
+          <span class="tag orange">VIP</span>
+          <span class="tag">Ежедневно</span>
+          <span class="tag">Персональный менеджер</span>
+        </div>
+        <div class="program-footer">
+          <div>
+            <span class="program-price">По запросу</span>
+          </div>
+          <button class="btn btn-primary btn-sm">Заказать</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Детокс -->
+    <div class="program-card" onclick="goToOrder('detox')">
+      <div class="program-img" style="background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);">🌿</div>
+      <div class="program-body">
+        <div class="program-name">Detox</div>
+        <div class="program-desc">Очищение организма • Смузи и супы • 3/5/7 дней</div>
+        <div class="program-tags">
+          <span class="tag">3 дня</span>
+          <span class="tag">5 дней</span>
+          <span class="tag">7 дней</span>
+          <span class="tag">Ежедневно</span>
+        </div>
+        <div class="program-footer">
+          <div>
+            <span class="program-price">от 12 000₽</span>
+          </div>
+          <button class="btn btn-primary btn-sm">Заказать</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="card mt-2">
+    <div class="card-title">📍 Как работает доставка?</div>
+    <div class="card-text">
+      <strong>Утро:</strong> 7:00-9:00 или 9:00-11:00<br>
+      <strong>Вечер:</strong> 19:00-21:00 или 21:00-23:00<br>
+      <strong>Снижение/Набор:</strong> Пн/Ср/Сб (утро), Вс/Вт/Пт (вечер)<br>
+      <strong>Баланс:</strong> Пн/Чт/Сб (утро), Вс/Ср/Пт (вечер)<br>
+      <strong>Премиум/Detox:</strong> ежедневно вечером
+    </div>
+  </div>
+
+</div>
+
+<!-- Bottom Nav -->
+<nav class="bottom-nav">
+  <a href="index.html" class="nav-item active">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    Программы
+  </a>
+  <a href="lk.html" class="nav-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    Мой рацион
+  </a>
+  <a href="history.html" class="nav-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    История
+  </a>
+  <a href="settings.html" class="nav-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    Настройки
+  </a>
+</nav>
+
+<script src="js/app.js"></script>
+<script>
+function scrollToPrograms() {
+  document.getElementById('programs').scrollIntoView({ behavior: 'smooth' });
+}
+function goToOrder(program) {
+  localStorage.setItem('selectedProgram', program);
+  window.location.href = 'order.html';
+}
+// Register PWA
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js');
+}
+</script>
+</body>
+</html>
